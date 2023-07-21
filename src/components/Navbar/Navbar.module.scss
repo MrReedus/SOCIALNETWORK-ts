@@ -1,0 +1,20 @@
+.nav {
+  grid-area: n;
+  a {
+    cursor: pointer;
+    transition: 0.2s ease;
+    color: #242424;
+    text-decoration: none;
+    &:hover {
+      color: rgb(179, 169, 146);
+    }
+  }
+
+  a .active {
+    color: indianred;
+  }
+}
+
+.item .active {
+  color: indianred;
+}

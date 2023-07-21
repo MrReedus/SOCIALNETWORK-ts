@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+  padding: 15px;
+}
+
+.app-wrapper {
+  font-family: "Kanit", sans-serif;
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff4f4;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 2fr 10fr;
+  gap: 10px;
+  grid-template-areas:
+    "h h"
+    "n c";
+}
+
+.content {
+  grid-area: c;
+
+  > img {
+    width: 900px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 75px 0 75px 0;
+    margin-bottom: 16px;
+  }
+}
+
+a.active {
+  color: slateblue;
+}
+
+.button {
+  width: 120px;
+  height: 40px;
+  grid-column: 2/3;
+  align-self: center;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.1s ease-in;
+  &:hover {
+    transform: scale(1.01);
+    background-color: #cafdb2;
+  }
+
+  -webkit-box-shadow: 0px 1px 2px 2px rgba(34, 60, 80, 0.25);
+  -moz-box-shadow: 0px 1px 2px 2px rgba(34, 60, 80, 0.25);
+  box-shadow: 0px 1px 2px 2px rgba(34, 60, 80, 0.25);
+}
+
+.button--dialog {
+  align-self: flex-end;
+}
