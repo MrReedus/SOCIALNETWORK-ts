@@ -4,7 +4,7 @@ import MyPosts from "./MyPosts";
 const Profile = ({  }) => {
   return (
     <>
-      <img src="https://wallpapers.com/images/hd/city-basketball-court-street-gkz98iv9ljs2nwv8.jpg" alt="" />
+      {/*<img src="https://wallpapers.com/images/hd/city-basketball-court-street-gkz98iv9ljs2nwv8.jpg" alt="" />*/}
 
       <div className={styles.wrapper}>
         <div className={styles.avatar}>
@@ -34,6 +34,7 @@ const Profile = ({  }) => {
       </div>
 
       <MyPosts/>
+
     </>
   );
 };

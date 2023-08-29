@@ -20,12 +20,11 @@
   width: 90%;
   height: 100px;
   padding: 25px 15px;
-  border-radius: 20px;
   outline: none;
-  border: none;
+  border: 1px solid #c2bfbf;
   background-color: #eeeded;
-  -webkit-box-shadow: 0px 12px 12px -1px rgba(34, 60, 80, 0.25);
-  -moz-box-shadow: 0px 12px 12px -1px rgba(34, 60, 80, 0.25);
-  box-shadow: 0px 12px 12px -1px rgba(34, 60, 80, 0.25);
+  -webkit-box-shadow: 0px 12px 12px -1px rgba(12, 60, 80, 0.15);
+  -moz-box-shadow: 0px 12px 12px -1px rgba(12, 60, 80, 0.15);
+  box-shadow: 0px 12px 12px -1px rgba(12, 60, 80, 0.15);
   resize: none;
 }
