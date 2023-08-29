@@ -27,9 +27,9 @@ const MyPosts = ({}) => {
             </div>
 
             <h2>Posts</h2>
-            <Post/>
-            <Post/>
-            <Post/>
+            <Post text={'Hello guys, how are you?'} likeCount={2}/>
+            <Post text={'Its my first post'} likeCount={10}/>
+            <Post text={'...Hello world!'} likeCount={7}/>
         </div>
     );
 };
