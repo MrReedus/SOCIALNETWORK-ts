@@ -1,7 +1,13 @@
 import styles from "./../Dialogs.module.scss";
 import { NavLink } from "react-router-dom";
 
-const DialogItem = ({}) => {
+
+type DialogsType = {
+
+    name: string,
+    avatar: string
+}
+const DialogItem = (props: DialogsType) => {
 
 
   return (
@@ -10,7 +16,7 @@ const DialogItem = ({}) => {
         <div className={styles.avatar}>
           <img src={''} alt="" />
         </div>
-          <div>asdasdasdasdasdasd</div>
+          <div>{props.name}</div>
       </div>
     </div>
   );

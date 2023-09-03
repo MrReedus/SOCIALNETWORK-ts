@@ -1,0 +1,92 @@
+import React from "react";
+import DialogItem from "./DialogItem";
+import styles from "./Dialogs.module.scss";
+import {NavLink} from "react-router-dom";
+import Message from "./Message";
+
+
+
+const Dialogs = ({}) => {
+
+
+
+    let dialogsData = [
+        {name: "Vlad", id: 1, avatar: ''},
+        {name: "Alice", id: 2, avatar: ''},
+        {name: "Dmitry", id: 3, avatar: ''},
+        {name: "Boris", id: 4, avatar: ''},
+        {name: "Igor", id: 5, avatar: ''},
+        {name: "Diana", id: 6, avatar: ''},
+    ]
+    let messagesData = [
+        {id: 1, message: 'Hello bro'},
+        {id: 2, message: 'love you'},
+        { id: 3, message: ':C'},
+        {id: 4, message: '...'},
+        {id: 5, message: 'what are you..?'},
+        {id: 6, message: ':DD'},
+    ]
+
+
+    // let messageElements = messagesData.messages.map((message) => <Message key={message.id} text={message.text} />);
+
+    // const onSendMessageClick = () => {
+    //   store.dispatch(sendMessageCreator());
+    // };
+    // const onChangeNewMessage = (e) => {
+    //   let body = e.target.value;
+    //   store.dispatch(updateMessageBodyCreator(body));
+    // };
+
+    return (
+        <>
+            {/*<h2>Dialogs</h2>*/}
+
+
+                {/*<div className={styles.items}>{dialogElements}</div>*/}
+                {/*<div className={styles.messages}>{messageElements}</div>*/}
+
+            <div className={styles.dialogs}>
+                <div className="">
+                    {dialogsData.map(d => {
+                        return (
+                            <NavLink to={'/dialogs/' + '' + d.id}><DialogItem  key={d.id} name={d.name} avatar={d.avatar}/></NavLink>
+                        )
+                    })}
+                </div>
+
+
+
+                <div className={styles.messages}>
+                    {messagesData.map(m => {
+                        return (
+                            <Message text={m.message}/>
+                        )
+                    })}
+                </div>
+            </div>
+            <div className={styles.textAreaWrapper}>
+                <textarea className={styles.textArea}
+                    // onChange={onChangeNewMessage}
+                    // value={messagesData.newMessageBody}
+
+                    placeholder="Enter Your message..."
+                ></textarea>
+                <button className="button button--dialog">
+                    send message
+                </button>
+            </div>
+
+
+
+                {/*// let dialogElements = messagesData.dialogs.map((dialog) => (*/}
+                {/*//   <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} avatarUrl={dialog.avatarUrl} />*/}
+                {/*// ));*/}
+
+
+
+        </>
+    );
+};
+
+export default Dialogs;
