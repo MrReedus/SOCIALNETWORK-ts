@@ -15,7 +15,7 @@ ul {
   display: grid;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #fff4f4;
+  background-color: #f3ebeb;
   grid-template-rows: auto 1fr;
   grid-template-columns: 2fr 10fr;
   gap: 10px;
@@ -38,7 +38,9 @@ ul {
 }
 
 a.active {
-  color: slateblue;
+  li {
+    color: slateblue;
+  }
 }
 
 .button {
@@ -52,7 +54,7 @@ a.active {
   transition: 0.1s ease-in;
   &:hover {
     transform: scale(1.01);
-    background-color: #cafdb2;
+    background-color: #c8ccc5;
   }
 
   -webkit-box-shadow: 0px 1px 2px 2px rgba(34, 60, 80, 0.25);
@@ -63,3 +65,9 @@ a.active {
 .button--dialog {
   align-self: flex-end;
 }
+
+
+
+
+
+

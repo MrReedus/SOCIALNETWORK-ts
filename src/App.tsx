@@ -19,7 +19,7 @@ function App() {
 
                 <Routes>
                     <Route path="/profile" element={<Profile/>}/>
-                    <Route path="/dialogs" element={<Dialogs/>}/>
+                    <Route path="/dialogs/*" element={<Dialogs/>}/>
                     <Route path="/*" element={<div><img src="https://otvet.imgsmail.ru/download/277118656_07ba58db02f133d9fa7242ed0dd7ab49_800.jpg" alt=""/></div>}/>
                 </Routes>
 

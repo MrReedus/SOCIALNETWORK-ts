@@ -1,6 +1,7 @@
 import React from "react";
 import DialogItem from "./DialogItem";
 import styles from "./Dialogs.module.scss";
+import {NavLink} from "react-router-dom";
 
 const Dialogs = ({}) => {
 
@@ -16,34 +17,39 @@ const Dialogs = ({}) => {
     // };
 
     return (
-        <div className={styles.dialogs}>
-            {/*<div className={styles.items}>{dialogElements}</div>*/}
-            {/*<div className={styles.messages}>{messageElements}</div>*/}
-            {/*<div className={styles.textAreaWrapper}>*/}
-            <textarea
-                // onChange={onChangeNewMessage}
-                // value={messagesData.newMessageBody}
-                className={styles.textArea}
-                name=""
-                id=""
-                cols="30"
-                rows="10"
-                placeholder="Enter Your message..."
-            ></textarea>
-            <button className="button button--dialog">
-                send message
-            </button>
+        <>
+            <h2>Dialogs</h2>
+            <div className={styles.dialogs}>
 
-            <h1>DIALOGS</h1>
-            {/*// let dialogElements = messagesData.dialogs.map((dialog) => (*/}
-            {/*//   <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} avatarUrl={dialog.avatarUrl} />*/}
-            {/*// ));*/}
+                {/*<div className={styles.items}>{dialogElements}</div>*/}
+                {/*<div className={styles.messages}>{messageElements}</div>*/}
+                {/*<div className={styles.textAreaWrapper}>*/}
+                <textarea
+                    // onChange={onChangeNewMessage}
+                    // value={messagesData.newMessageBody}
+                    className={styles.textArea}
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                    placeholder="Enter Your message..."
+                ></textarea>
+                <button className="button button--dialog">
+                    send message
+                </button>
 
-            <DialogItem/>
-            <DialogItem/>
-            <DialogItem/>
-            <DialogItem/>
-        </div>
+
+                {/*// let dialogElements = messagesData.dialogs.map((dialog) => (*/}
+                {/*//   <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} avatarUrl={dialog.avatarUrl} />*/}
+                {/*// ));*/}
+                <NavLink to={'/dialogs/1'}><DialogItem/></NavLink>
+                <NavLink to={'/dialogs/2'}><DialogItem/></NavLink>
+                <NavLink to={'/dialogs/3'}><DialogItem/></NavLink>
+                <NavLink to={'/dialogs/4'}><DialogItem/></NavLink>
+
+            </div>
+
+        </>
     );
 };
 
