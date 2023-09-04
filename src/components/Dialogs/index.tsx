@@ -3,29 +3,15 @@ import DialogItem from "./DialogItem";
 import styles from "./Dialogs.module.scss";
 import {NavLink} from "react-router-dom";
 import Message from "./Message";
+import {dialogsType, messagesType} from "../../App";
 
+type dialogsPropsType = {
+    dialogs: dialogsType[]
+    messages: messagesType[]
+}
 
+const Dialogs = (props: dialogsPropsType) => {
 
-const Dialogs = ({}) => {
-
-
-
-    let dialogsData = [
-        {name: "Vlad", id: 1, avatar: ''},
-        {name: "Alice", id: 2, avatar: ''},
-        {name: "Dmitry", id: 3, avatar: ''},
-        {name: "Boris", id: 4, avatar: ''},
-        {name: "Igor", id: 5, avatar: ''},
-        {name: "Diana", id: 6, avatar: ''},
-    ]
-    let messagesData = [
-        {id: 1, message: 'Hello bro'},
-        {id: 2, message: 'love you'},
-        { id: 3, message: ':C'},
-        {id: 4, message: '...'},
-        {id: 5, message: 'what are you..?'},
-        {id: 6, message: ':DD'},
-    ]
 
 
     // let messageElements = messagesData.messages.map((message) => <Message key={message.id} text={message.text} />);
@@ -40,15 +26,11 @@ const Dialogs = ({}) => {
 
     return (
         <>
-            {/*<h2>Dialogs</h2>*/}
-
-
-                {/*<div className={styles.items}>{dialogElements}</div>*/}
-                {/*<div className={styles.messages}>{messageElements}</div>*/}
+            <h2>Dialogs</h2>
 
             <div className={styles.dialogs}>
                 <div className="">
-                    {dialogsData.map(d => {
+                    {props.dialogs.map(d => {
                         return (
                             <NavLink to={'/dialogs/' + '' + d.id}><DialogItem  key={d.id} name={d.name} avatar={d.avatar}/></NavLink>
                         )
@@ -58,7 +40,7 @@ const Dialogs = ({}) => {
 
 
                 <div className={styles.messages}>
-                    {messagesData.map(m => {
+                    {props.messages.map(m => {
                         return (
                             <Message text={m.message}/>
                         )
