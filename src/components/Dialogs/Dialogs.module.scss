@@ -20,6 +20,9 @@
   border-radius: 8px;
   transition: 0.3s ease;
 
+
+}
+.item {
   &:hover {
     background-color: #c9c6c6;
     opacity: 0.9;
@@ -28,6 +31,8 @@
 
 .message {
   padding-left: 30px;
+  display: flex;
+  align-items: center;
 }
 
 a {

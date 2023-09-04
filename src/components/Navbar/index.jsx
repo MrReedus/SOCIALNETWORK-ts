@@ -6,7 +6,7 @@ const navItems = ['Profile', 'Dialogs', 'Messages', 'News',  'Music', 'Setting' 
 
 const Navbar = () => {
     return (
-        <nav className={styles.nav}>1
+        <nav className={styles.nav}>
             <ul>
                 {navItems.map(item =>
                     <NavLink to={`/${item.toLowerCase()}`}> <li>{item}</li></NavLink>
