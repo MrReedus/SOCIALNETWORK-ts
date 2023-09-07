@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./MyPosts.module.scss";
 import Post from "./Post";
+import {PostsType} from "../../../redux/state";
 
 
-const MyPosts = ({}) => {
 
-   let postsData = [
-       {id: 1, message: 'Hello guys, how are you?', likeCount: 1},
-       {id: 1, message: 'Its my first post', likeCount: 3},
-       {id: 1, message: 'Hello world', likeCount: 12},
-   ]
+type PostsPropsType = {
+    posts: PostsType[]
+}
+const MyPosts = (props: PostsPropsType) => {
 
-    let posts = postsData.map(post => <Post key={post.id} text={post.message} likeCount={post.likeCount}></Post>)
+
+    let posts = props.posts.map(post => <Post key={post.id} text={post.message} likeCount={post.likeCount}></Post>)
 
     return (
         <div className={styles.posts}>
@@ -19,8 +19,7 @@ const MyPosts = ({}) => {
         <textarea
             // ref={newPostElement}
             className={styles.textarea}
-            cols="20"
-            rows="5"
+
             // value={newPostText}
         />
                 <button className="button">

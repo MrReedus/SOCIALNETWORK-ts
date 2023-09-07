@@ -3,11 +3,10 @@ import DialogItem from "./DialogItem";
 import styles from "./Dialogs.module.scss";
 import {NavLink} from "react-router-dom";
 import Message from "./Message";
-import {dialogsType, messagesType} from "../../App";
+import {dialogsPageType, DialogsType, MessagesType} from "../../redux/state";
 
 type dialogsPropsType = {
-    dialogs: dialogsType[]
-    messages: messagesType[]
+    state: dialogsPageType
 }
 
 const Dialogs = (props: dialogsPropsType) => {
@@ -30,17 +29,15 @@ const Dialogs = (props: dialogsPropsType) => {
 
             <div className={styles.dialogs}>
                 <div className="">
-                    {props.dialogs.map(d => {
+                    {props.state.dialogs.map(d => {
                         return (
                             <NavLink to={'/dialogs/' + '' + d.id}><DialogItem  key={d.id} name={d.name} avatar={d.avatar}/></NavLink>
                         )
                     })}
                 </div>
 
-
-
                 <div className={styles.messages}>
-                    {props.messages.map(m => {
+                    {props.state.messages.map(m => {
                         return (
                             <Message text={m.message}/>
                         )
@@ -65,7 +62,7 @@ const Dialogs = (props: dialogsPropsType) => {
                 {/*//   <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} avatarUrl={dialog.avatarUrl} />*/}
                 {/*// ));*/}
 
-
+Создает отдельный state и прокидывает данный компонентам типизируя их
 
         </>
     );
