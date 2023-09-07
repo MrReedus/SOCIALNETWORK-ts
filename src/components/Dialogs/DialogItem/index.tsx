@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 
 
 type DialogsType = {
-
     name: string,
     avatar: string
 }
+
 const DialogItem = (props: DialogsType) => {
 
 
@@ -14,7 +14,7 @@ const DialogItem = (props: DialogsType) => {
     <div className={styles.item}>
       <div className={styles.wrapper}>
         <div className={styles.avatar}>
-          <img src={''} alt="" />
+          <img src={props.avatar} alt="" />
         </div>
           <div>{props.name}</div>
       </div>
