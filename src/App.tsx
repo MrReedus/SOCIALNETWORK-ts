@@ -11,6 +11,8 @@ import {RootStateType} from "./redux/state";
 
 type StatePropsType = {
     state: RootStateType
+    addPost:()=>void
+    updatePostText:(newText: string)=>void
 }
 
 
@@ -26,7 +28,7 @@ function App(props: StatePropsType) {
             <div className="content">
 
                 <Routes>
-                    <Route path="/profile" element={<Profile state={props.state.profilePage}/>}/>
+                    <Route path="/profile" element={<Profile ProfilePageData={props.state.profilePage} addPost={props.addPost} updatePostText={props.updatePostText}/>}/>
                     <Route path="/dialogs/*" element={<Dialogs state={props.state.dialogsPage}/>}/>
                     <Route path="/*" element={<div><img src="https://otvet.imgsmail.ru/download/277118656_07ba58db02f133d9fa7242ed0dd7ab49_800.jpg" alt=""/></div>}/>
                 </Routes>
