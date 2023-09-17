@@ -1,4 +1,6 @@
-import {rerenderEntireThree} from "../render";
+let rerenderEntireTree = () => {
+    console.log('state was changed')
+}
 
 
 export type PostsType = {
@@ -88,15 +90,19 @@ export let state = {
 }
 
 
-export let addPost = () => {
+export const addPost = () => {
     let newPost = {id: 5, message: state.profilePage.newPostText, likeCount: 0}
     state.profilePage.posts.push(newPost)
-    rerenderEntireThree(state) // вызываем функцию перерисовки всего дерева для отображения поста, в неё мы обернули наш app
+    rerenderEntireTree() // вызываем функцию перерисовки всего дерева для отображения поста, в неё мы обернули наш app
 }
-export let updatePostText = (newText: string) => {
+export const updatePostText = (newText: string) => {
     let newPost = {id: 5, message: postMessage, likeCount: 0}
     state.profilePage.newPostText = newText
-    rerenderEntireThree(state) // вызываем функцию перерисовки всего дерева для отображения поста, в неё мы обернули наш app
+    rerenderEntireTree() // вызываем функцию перерисовки всего дерева для отображения поста, в неё мы обернули наш app
+}
+
+export const subscribe = (observer: any) => {
+    rerenderEntireTree = observer // патерн наблюдатель
 }
 
 
