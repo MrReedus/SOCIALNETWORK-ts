@@ -56,13 +56,9 @@ const Dialogs = (props: dialogsPropsType) => {
                 </button>
             </div>
 
-
-
                 {/*// let dialogElements = messagesData.dialogs.map((dialog) => (*/}
                 {/*//   <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} avatarUrl={dialog.avatarUrl} />*/}
                 {/*// ));*/}
-
-Создает отдельный state и прокидывает данный компонентам типизируя их
 
         </>
     );
