@@ -1,4 +1,3 @@
-
 export type PostsType = {
     id: number
     message: string
@@ -26,25 +25,29 @@ export type RootStateType = {
     profilePage: profilePageType
     dialogsPage: dialogsPageType
 }
+export type Action =
+    | { type: 'ADD-POST' }
+    | { type: 'UPDATE-NEW-POST-TEXT', newText: string}
 
 
 // Переделал State на ООП.
 
 let store = {
-   _state: {
+    _state: {
         profilePage: {
             posts: [
                 {id: 1, message: 'Hello guys, how are you?', likeCount: 1},
                 {id: 1, message: 'Its my first post', likeCount: 3},
                 {id: 1, message: 'Hello world', likeCount: 12},
             ],
-            newPostText: ''
+            newPostText: 'hi!'
         },
+
 
         dialogsPage: {
             dialogs: [
                 {
-                    name: "Diana",
+                    name: "Jessica",
                     id: 1,
                     avatar: 'https://img.freepik.com/free-psd/3d-illustration-of-person-with-sunglasses_23-2149436180.jpg?w=826&t=st=1694099085~exp=1694099685~hmac=d389989d78c403a6905eca92aada703897b90b0537fdd3e3e666eaeac387896b'
                 },
@@ -85,32 +88,33 @@ let store = {
         },
         sidebar: {}
     },
-    getState(){
-       return this._state;
-    },
-    _callSubscriber(state?: any){
+    _callSubscriber(state?: any) {
         console.log('state was changed')
     },
-    addPost() {
-        debugger;
-        let newPost = {id: 5, message: this._state.profilePage.newPostText, likeCount: 0}
-
-
-        // this._state.profilePage.posts.push(newPost) Переделал через spread оператор ниже
-        this._state.profilePage.posts = [...this._state.profilePage.posts, newPost];
-        this._callSubscriber(this._state) // вызываем функцию перерисовки всего дерева для отображения поста, в неё мы обернули наш app
-    },
-    updatePostText (newText: string){
-
-        let newPost = {id: 5, message: postMessage, likeCount: 0}
-        this._state.profilePage.newPostText = newText
-        this._callSubscriber(this._state) // вызываем функцию перерисовки всего дерева для отображения поста, в неё мы обернули наш app
+    getState() {
+        return this._state;
     },
     subscribe(observer: any) {
         this._callSubscriber = observer // патерн наблюдатель
-    }
-}
+    },
 
+    dispatch(action: any) { // { type: 'ADD-POST'}
+        if (action.type === 'ADD-POST') {
+            let newPost = {id: 5, message: this._state.profilePage.newPostText, likeCount: 0}
+
+            // this._state.profilePage.posts.push(newPost) Переделал через spread оператор ниже
+            this._state.profilePage.posts = [...this._state.profilePage.posts, newPost];
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state) // вызываем функцию перерисовки всего дерева для отображения поста, в неё мы обернули наш app
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+
+            this._state.profilePage.newPostText = action.newText
+            this._callSubscriber(this._state) // вызываем функцию перерисовки всего дерева для отображения поста, в неё мы обернули наш app
+        }
+    }
+
+
+}
 
 
 export default store
