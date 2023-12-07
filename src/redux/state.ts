@@ -30,6 +30,9 @@ export type Action =
     | { type: 'UPDATE-NEW-POST-TEXT', newText: string}
 
 
+const ADD_POST = 'ADD-POST'
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
+_
 // Переделал State на ООП.
 
 let store = {
@@ -99,14 +102,14 @@ let store = {
     },
 
     dispatch(action: any) { // { type: 'ADD-POST'}
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {id: 5, message: this._state.profilePage.newPostText, likeCount: 0}
 
             // this._state.profilePage.posts.push(newPost) Переделал через spread оператор ниже
             this._state.profilePage.posts = [...this._state.profilePage.posts, newPost];
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state) // вызываем функцию перерисовки всего дерева для отображения поста, в неё мы обернули наш app
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
 
             this._state.profilePage.newPostText = action.newText
             this._callSubscriber(this._state) // вызываем функцию перерисовки всего дерева для отображения поста, в неё мы обернули наш app
@@ -115,7 +118,16 @@ let store = {
 
 
 }
-
+export const addPostActionCreator = () => {
+    return {
+        type: ADD_POST
+    }
+}
+export const updateNewPostTextActionCreator = (text: any) => {
+    return {
+        type: UPDATE_NEW_POST_TEXT, newText: text
+    }
+}
 
 export default store
 // window.store = store
